@@ -1,0 +1,62 @@
+/*
+ * software_timer.c
+ *
+ *  Created on: Nov 5, 2022
+ *      Author: ASUS
+ */
+
+#include "software_timer.h"
+
+int timer1_flag = 0;		// led blink
+int timer1_counter = 0;
+
+int timer2_flag = 0;		// count timeout10s
+int timer2_counter = 0;
+
+int timer3_flag = 0;		// NO PRESS
+int timer3_counter = 0;
+
+int TIMER_CYCLE = 10;
+
+void setTimer1(int duration)
+{
+	timer1_counter = duration / TIMER_CYCLE;
+	timer1_flag = 0;
+}
+
+void setTimer2(int duration)
+{
+	timer2_counter = duration / TIMER_CYCLE;
+	timer2_flag = 0;
+}
+
+void setTimer3(int duration)
+{
+	timer3_counter = duration / TIMER_CYCLE;
+	timer3_flag = 0;
+}
+
+void timeRun()
+{
+	if(timer1_counter > 0)
+	{
+		timer1_counter--;
+		if(timer1_counter <= 0)
+			timer1_flag = 1;
+	}
+
+	if(timer2_counter > 0)
+	{
+		timer2_counter--;
+		if(timer2_counter <= 0)
+			timer2_flag = 1;
+	}
+
+	if(timer3_counter > 0)
+	{
+		timer3_counter--;
+		if(timer3_counter <= 0)
+			timer3_flag = 1;
+	}
+}
+

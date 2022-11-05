@@ -1,0 +1,2 @@
+../Core/Src/fsm_automatic.c:13:6:checkCounter	8	static
+../Core/Src/fsm_automatic.c:24:6:fsm_simple_buttons_run	8	static
